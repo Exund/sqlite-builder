@@ -1,0 +1,36 @@
+{
+  "name": "sqlite-builder",
+  "version": "0.0.1",
+  "description": "SQLite Database builder and migration manager",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "better-sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "dts-bundle": "^0.7.3",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "build": "npx tsc -p .; npx dts-bundle --name sqlite-builder --main lib/index.d.ts --out ../index.d.ts --removeSource"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exund/sqlite-builder.git"
+  },
+  "keywords": [
+    "sqlite",
+    "builder"
+  ],
+  "author": "Exund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Exund/sqlite-builder/issues"
+  },
+  "homepage": "https://github.com/Exund/sqlite-builder#readme"
+}
