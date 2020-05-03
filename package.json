@@ -17,7 +17,8 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "npx tsc -p .; npx dts-bundle --name sqlite-builder --main lib/index.d.ts --out ../index.d.ts --removeSource"
+    "build": "npx tsc -p .;",
+    "build:bundle": "rm index.d.ts; npx tsc -p .; npx dts-bundle --name sqlite-builder --main lib/index.d.ts --out ../bundle.d.ts --removeSource"
   },
   "repository": {
     "type": "git",

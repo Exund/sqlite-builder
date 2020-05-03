@@ -2,3 +2,5 @@ src/
 tsconfig.json
 *.sqlite
 *.bak
+*.ts
+!index.d.ts

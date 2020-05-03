@@ -25,13 +25,13 @@ interface ConflictOptions extends ColumnConstraintOptions {
     onConflict?: Conflict;
 }
 
-enum SortType {
+export enum PrimaryKeySortType {
     Asc = "ASC",
     Desc = "DESC"
 }
 
 interface PrimaryKeyOptions extends ConflictOptions {
-    sort?: SortType;
+    sort?: PrimaryKeySortType;
     autoIncrement?: boolean;
 }
 
@@ -40,7 +40,7 @@ export class PrimaryKeyConstraint extends ColumnConstraint implements PrimaryKey
 
     name?: string;
     onConflict?: Conflict;
-    sort?: SortType;
+    sort?: PrimaryKeySortType;
     autoIncrement?: boolean;
 
     constructor({
