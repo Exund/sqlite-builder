@@ -8,7 +8,7 @@ declare module 'sqlite-builder' {
     }
 
     interface TableOptions {
-        schema_name?: string;
+        schemaName?: string;
         name: string;
         columns: Array<Column>;
         constraints?: Array<TableConstraints.TableConstraint>;
@@ -17,13 +17,13 @@ declare module 'sqlite-builder' {
     }
 
     export class Table implements TableOptions {
-        schema_name?: string;
+        schemaName?: string;
         name: string;
         columns: Array<Column>;
         constraints: Array<TableConstraints.TableConstraint>;
         isTemporary: boolean;
         checkForExists: boolean;
-        constructor({ name, schema_name, columns, constraints, isTemporary, checkForExists }: TableOptions);
+        constructor({ name, schemaName, columns, constraints, isTemporary, checkForExists }: TableOptions);
         build(): string;
     }
 

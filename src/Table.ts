@@ -2,7 +2,7 @@ import { Column } from "./Column";
 import { TableConstraint } from "./TableConstraints";
 
 interface TableOptions {
-    schema_name?: string;
+    schemaName?: string;
     name: string;
     columns: Array<Column>;
     constraints?: Array<TableConstraint>;
@@ -11,7 +11,7 @@ interface TableOptions {
 }
 
 export class Table implements TableOptions {
-    schema_name?: string;
+    schemaName?: string;
     name: string;
     columns: Array<Column>;
     constraints: Array<TableConstraint>;
@@ -20,14 +20,14 @@ export class Table implements TableOptions {
 
     constructor({
         name,
-        schema_name,
+        schemaName,
         columns,
         constraints = [],
         isTemporary = false,
         checkForExists = true
     }: TableOptions) {
         this.name = name;
-        this.schema_name = schema_name;
+        this.schemaName = schemaName;
         this.columns = columns;
         this.constraints = constraints;
         this.isTemporary = isTemporary;
@@ -35,7 +35,7 @@ export class Table implements TableOptions {
     }
 
     build(): string {
-        return `CREATE${this.isTemporary ? " TEMPORARY" : ""} TABLE${this.checkForExists ? " IF NOT EXISTS" : ""} ${this.schema_name ? `${this.schema_name}.` : ""}${this.name} (
+        return `CREATE${this.isTemporary ? " TEMPORARY" : ""} TABLE${this.checkForExists ? " IF NOT EXISTS" : ""} ${this.schemaName ? `${this.schemaName}.` : ""}${this.name} (
             ${this.columns.map(c => c.build()).concat(this.constraints.map(c => c.build())).join(",")}
         )`;
     }
